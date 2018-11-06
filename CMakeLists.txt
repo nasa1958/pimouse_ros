@@ -10,6 +10,7 @@ project(pimouse_ros)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  std_srvs
   message_generation
 )
 
@@ -50,14 +51,16 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
    FILES
    LightSensorValues.msg
+   MotorFreqs.msg
  )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
+add_service_files(
+  FILES
+  TimedMotion.srv
 #   Service1.srv
 #   Service2.srv
-# )
+ )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -105,7 +108,7 @@ add_message_files(
 #  INCLUDE_DIRS include
 #  LIBRARIES pimouse_ros
 #  CATKIN_DEPENDS rospy std_msgs
-   CATKIN_DEPENDS rospy std_msgs message_runtime
+   CATKIN_DEPENDS rospy std_msgs std_srvs message_runtime
 #  DEPENDS system_lib
 )
 
